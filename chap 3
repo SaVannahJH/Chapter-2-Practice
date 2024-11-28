@@ -3,7 +3,7 @@
 # Python Crash Course: Chapter 3 Practice
 
 # 3-1. Names: Store the names of a few of your friends in a list called names. Print each person’s name by accessing each element in the list, one at a time.
-friends=[Cora, Sierra, Sonia, Rachel]
+friends=["Cora", "Sierra", "Sonia", "Rachel"]
 print(friends[0])
 print(friends[1])
 print(friends[2])
@@ -11,26 +11,26 @@ print(friends[3])
 
 # 3-2. Greetings: Start with the list you used in Exercise 3-1, but instead of just printing each person’s name, print a message to them. 
 # The text of each message should be the same, but each message should be personalized with the person’s name.
-friends=[Cora, Sierra, Sonia, Rachel]
-print(f" You are my BBF {friends[0]} and sister for life!")
-print(f" You were my BBF in highschool {friends[1]}!")
+friends=["Cora", "Sierra", "Sonia", "Rachel"]
+print(f" You are my BBF {friends[1]} and sister for life!")
+print(f" You were my BBF in highschool {friends[0]}!")
 print(f" You are my second friend {friends[2]}! Friends for life I say")
 print(f" You are my sassiest sister and freind {friends[3]}!")
 
 
 # 3-3. Your Own List: Think of your favorite mode of transportation, such as a motorcycle or a car, and make a list that stores several examples. 
 # Use your list to print a series of statements about these items, such as “I would like to own a Honda motorcycle.”
-Cars=[Cybertruck, Ford Exursion, SUV, Ford Bronco 1978, Eagle Talon]
+cars=["Cybertruck","Ford_Exursion","SUV","Bronco","Eagle_Talon"]
 print(f" I think {cars[0]} are intersesting !")
 print( f" My father own three {cars[1]} and they all are over 20 years old")
 print(f" My mom wants an {cars[2]} for her birthday")
-print(f" My fathers favorite car is a {car[3]} and he owns 2 of them")
+print(f" My fathers favorite car is a {cars[3]} and he owns 2 of them")
 print(f" My mom owns a {cars[-1]}!")
 
 # 3-4. Guest List: If you could invite anyone, living or deceased, to dinner, who would you invite? 
 # Make a list that includes at least three people you’d like to invite to dinner. 
 # Then use your list to print a message to each person, inviting them to dinner.
-guests=[Jesus, Moses, God, John the Bapsist,]
+guests=["Jesus", "Moses", "God", "John"]
 print(f"Hello {guests[0]} will you join me for dinner?")
 print(f"Hello {guests[1]} will you join me for dinner?")
 print(f"Hello {guests[2]} will you join me for dinner?")
@@ -42,19 +42,18 @@ print(f"Hello {guests[-1]} will you join me for dinner?")
 # Add a print() call at the end of your program, stating the name of the guest who can’t make it.
 # Modify your list, replacing the name of the guest who can’t make it with the name of the new person you are inviting.
 # Print a second set of invitation messages, one for each person who is still in your list.
-guests=[Jesus, Moses, God, John the Bapsist,]
+guests=["Jesus", "Moses", "God", "John"]
 print(f"Hello {guests[0]} will you join me for dinner?")
 print(f"Hello {guests[1]} will you join me for dinner?")
 print(f"Hello {guests[2]} will you join me for dinner?")
 print(f"Hello {guests[-1]} will you join me for dinner?")
 
-print(f"{guest[-1]} cant make dinner")
-new_guests=guests.insert(-1,"Mark")
-print(new_guests)
-print(f"Hello {new_guests[0]} will you join me for dinner?")
-print(f"Hello {new_guests[1]} will you join me for dinner?")
-print(f"Hello {new_guests[2]} will you join me for dinner?")
-print(f"Hello {new_guests[-1]} will you join me for dinner?")
+print(f"{guests[-1]} cant make dinner")
+guests[-1]='Mark'
+print(f"Hello {guests[0]} will you join me for dinner?")
+print(f"Hello {guests[1]} will you join me for dinner?")
+print(f"Hello {guests[2]} will you join me for dinner?")
+print(f"Hello {guests[-1]} will you join me for dinner?")
 
 # 3-6. More Guests: You just found a bigger dinner table, so now more space is available. Think of three more guests to invite to dinner.
 # Start with your program from Exercise 3-4 or 3-5. 
@@ -63,17 +62,18 @@ print(f"Hello {new_guests[-1]} will you join me for dinner?")
 # Use insert() to add one new guest to the middle of your list.
 # Use append() to add one new guest to the end of your list.
 # Print a new set of invitation messages, one for each person in your list.
-print(new_guests)
-print(f"Hello {new_guests[0]} will you join me for dinner?")
-print(f"Hello {new_guests[1]} will you join me for dinner?")
-print(f"Hello {new_guests[2]} will you join me for dinner?")
-print(f"Hello {new_guests[-1]} will you join me for dinner?")
+print(guests)
+print(f"Hello {guests[0]} will you join me for dinner?")
+print(f"Hello {guests[1]} will you join me for dinner?")
+print(f"Hello {guests[2]} will you join me for dinner?")
+print(f"Hello {guests[-1]} will you join me for dinner?")
 
-print(f"Hey{new_guests} I found a bigger table!")
-more_guests=new_guests
-more_guests=new_guests.insert(1,"Mary")
-more_guests=new_guests.insert(3,"Noah")
-more_guests=new_guests.append("Eve")
+print(f"Hey{guests} I found a bigger table!")
+# Create a copy of guests so we don't modify the original list
+more_guests = guests.copy()
+more_guests.insert(1,"Mary")
+more_guests.insert(3,"Noah")
+more_guests.append("Eve")
 
 print(more_guests)
 print(f"Hello {more_guests[0]} will you join me for dinner?")
@@ -82,7 +82,7 @@ print(f"Hello {more_guests[2]} will you join me for dinner?")
 print(f"Hello {more_guests[3]} will you join me for dinner?")
 print(f"Hello {more_guests[4]} will you join me for dinner?")
 print(f"Hello {more_guests[-1]} will you join me for dinner?")
-print(f"Hello {new_guests[-2]} will you join me for dinner?")
+print(f"Hello {more_guests[-2]} will you join me for dinner?")
 
 # 3-7. Shrinking Guest List: You just found out that your new dinner table won’t arrive in time for the dinner, and now you have space for only two guests.
 # Start with your program from Exercise 3-6. 
@@ -99,25 +99,29 @@ print(f"Hello {more_guests[2]} will you join me for dinner?")
 print(f"Hello {more_guests[3]} will you join me for dinner?")
 print(f"Hello {more_guests[4]} will you join me for dinner?")
 print(f"Hello {more_guests[-1]} will you join me for dinner?")
-print(f"Hello {new_guests[-2]} will you join me for dinner?")
+print(f"Hello {more_guests[-2]} will you join me for dinner?")
 
-print(The resutrant let me know that I can only bring two people to dinner tonight)
+print("The resutrant let me know that I can only bring two people to dinner tonight")
 
-two_guests=more_guests.pop(-2)
-print(f"I'm sorry {more_guests[-2]} I can't invite you to dinner")
-two_guests=more_guests.pop(-1)
-print(f"I'm sorry {more_guests[-1]} I can't invite you to dinner")
-two_guests=more_guests.pop(0)
+#when using the pop method all the elements shift to the left
+more_guests.pop(0)  # Remove the first guest (Jesus)
 print(f"I'm sorry {more_guests[0]} I can't invite you to dinner")
-two_guests=more_guests.pop(1)
-print(f"I'm sorry {more_guests[1]} I can't invite you to dinner")
-two_guests=more_guests.pop(2)
-print(f"I'm sorry {more_guests[2]} I can't invite you to dinner")
+more_guests.pop(0)  # Remove the second guest (Mary)
+print(f"I'm sorry {more_guests[0]} I can't invite you to dinner")
+more_guests.pop(0)  # Remove the third guest (Moses)
+print(f"I'm sorry {more_guests[0]} I can't invite you to dinner")
+more_guests.pop(0)  # Remove Noah
+print(f"I'm sorry {more_guests[0]} I can't invite you to dinner")
+more_guests.pop(0) # Removes God
+print(f"I'm sorry {more_guests[0]} I can't invite you to dinner")
 
-print(f" Hey {two_guests[0]} and {two_guests[1]} your invited to dinner!")
-no_guests= del two_guests [0]
-no_guests= del two_guests [1]
-print(no_guests)
+
+
+print(f" Hey {more_guests[0]} and {more_guests[1]} your invited to dinner!")
+del more_guests [0]
+# After deleting one element, the indices shift, so we remove the new first element
+del more_guests [0]
+print(more_guests)
 
 # 3-8. Seeing the World: Think of at least five places in the world you’d like to visit.
 # Store the locations in a list. Make sure the list is not in alphabetical order.
@@ -134,46 +138,91 @@ print(no_guests)
 # Print the list to show that its order has been changed.
 # Use sort() to change your list so it’s stored in reverse-alphabetical order. 
 # Print the list to show that its order has changed.
-places=[France, Italy, Greece, United Kingdom, The Bahamas]
+places=["France", "Italy", "Greece", "United_Kingdom", "The_Bahamas"]
 print(places)
 
-sorted_places=places.sorted()
-print(sorted_places)
+# Create a copy of the list and sort it without modifying the original list
+same_places = places.copy()
+print( sorted(same_places))  # sorted() returns a new sorted list
 print(places)
 
-print(places.reverse())
+# Reverse the original list in place and print the result
+places.reverse()  # Reverses the list in place
 print(places)
-print(places.reveres())
 
+# Sort the original list in place
+places.sort()  # Sorts the list in place
+print(places)
 
-print(places.sort())
-print(places.sort(reverse=true))
+# Sort the original list in reverse order
+places.sort(reverse=True)  # Sorts in reverse order in place
+print(places)
 
 # 3-9. Dinner Guests: Working with one of the programs from Exercises 3-4 through 3-7 (pages 41–42), 
 # use len() to print a message indicating the number of people you’re inviting to dinner.
-print(two_guests)
-print(f" hey I'm inviting {len(two_guests)} to dinner tonight")
+print(guests)
+print(f" hey I'm inviting {len(guests)} to dinner tonight")
 
 # 3-10. Every Function: Think of things you could store in a list. 
 # For example, you could make a list of mountains, rivers, countries, cities, languages, or anything else you’d like. 
 # Write a program that creates a list containing these items and then uses each function introduced in this chapter at least once.
-langugages=[French, English, Spanish, German, Russian]
-print(len(languages))
-print(langugaes.append("Malay"))
-print(langugaes.insert(0, "Italian"))
-print(langugaes.pop())
-print(del languages [-3])
-print(languages.sorted())
-print(languagues.sorted(reverse=true))
+lang = ["French", "English", "Spanish", "German", "Russian"]
+print(lang)
 
-languages=new_lang
-print(new_lang.sort())
+# Print the length of the list
+print(len(lang))
 
-languages=newer_lang
-print(new_lang.sort(reverse=true))
+# Append a new language and print the updated list
+lang.append("Malay")
+print(lang)
 
+# Insert a new language at the beginning and print the updated list
+lang.insert(0, "Italian")
+print(lang)
+
+# Remove the last element and print the updated list
+lang.pop()
+print(lang)
+
+# Print the sorted list (without modifying the original list)
+print(sorted(lang))  # This returns a new sorted list, it doesn't change 'lang'
+print(sorted(lang, reverse=True))  # Sorted in reverse order
+
+# Delete the third-to-last element
+del lang[-3]
+print(lang)
+
+# Create a new empty list and assign it to 'lang'
+new_lang = []
+lang = new_lang
+
+# Sort the new empty list (sort() does not return anything)
+# We do not print the result of sort() because it returns None.
+new_lang.sort()  # Sorts the list in place (does not return a new list)
+print(new_lang)  # Now we print the sorted empty list, which will be []
+
+# Create another list and assign it to 'newer_lang'
+newer_lang = []
+lang = newer_lang
+
+# Copy 'newer_lang' to 'lang'
+lang = newer_lang.copy()
+
+# Sort 'newer_lang' in reverse order (sort() does not return anything)
+newer_lang.sort(reverse=True)  # Sorts in place
+print(newer_lang)  # This prints the sorted list (now empty) after sorting
+
+#when doing reverse=True, The T in true MUST be captlizied 
 
 # 3-11. Intentional Error: If you haven’t received an index error in one of your programs yet, try to make one happen. 
 # Change an index in one of your programs to produce an index error. Make sure you correct the error before closing the program.
-pets[]
-print(del pets[3])
+pets=[]
+# for example if I print(pets[2]) I would get an syntax error
+
+#Reminders:
+#In Python, the del statement is used to delete items from a list (or to delete a variable). 
+# However, it cannot be assigned to a variable, 
+# (as you're attempting with no_guests = del two_guests[0]. 
+# This results in a syntax error because del does not return a value, and 
+# you can't assign a result of del to a variable. 
+#THis logic also applies to the insert() method
